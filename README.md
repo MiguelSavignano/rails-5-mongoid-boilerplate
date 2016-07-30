@@ -1,9 +1,9 @@
 # Content
 
-###ORM
+##ORM
 * mongoid
 
-###Frontend
+##Frontend
 * bootstrap-sass
 * font-awesome-rails
 
