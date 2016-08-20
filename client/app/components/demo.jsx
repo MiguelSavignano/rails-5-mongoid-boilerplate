@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes } from 'react'
+import _                    from 'lodash'
 
 export default class Demo extends React.Component {
   constructor(props) {
@@ -24,7 +25,7 @@ export default class Demo extends React.Component {
       <div>
         <button onClick={this.onCountUp}>+</button>
         <h2> {count} </h2>
-        <button onClick={this.onCountUp}>-</button>
+        <button onClick={this.onCountDown}>-</button>
       </div>
     )
   }

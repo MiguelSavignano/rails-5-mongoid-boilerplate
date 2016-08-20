@@ -8,7 +8,9 @@
   "scripts": {
     "postinstall": "cd client && npm install",
     "start": "sh -c 'rm app/assets/webpack/* || true && cd client && npm run build:development'",
-    "test":"cd client && mocha",
     "test": "rspec"
+  },
+  "dependencies": {
+    "lodash": "^4.15.0"
   }
 }
