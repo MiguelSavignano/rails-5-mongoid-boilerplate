@@ -1,4 +1,5 @@
 about
+app:loop_test
 app:template
 app:update
 assets:clean[keep]
@@ -29,14 +30,18 @@ react_on_rails:assets:compile_environment
 react_on_rails:assets:delete_broken_symlinks
 react_on_rails:assets:symlink_non_digested_assets
 react_on_rails:assets:webpack
+rename_app
 restart
 routes
 secret
 spec
 spec:controllers
+spec:helpers
+spec:jobs
 spec:models
 spec:requests
 spec:routing
+spec:views
 stats
 test
 test:db

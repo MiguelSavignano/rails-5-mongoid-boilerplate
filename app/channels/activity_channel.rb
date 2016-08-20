@@ -11,7 +11,7 @@ class ActivityChannel < ApplicationCable::Channel
   def unsubscribed
     # Any cleanup needed when channel is unsubscribed
   end
-  
+
   def self.render_event(event)
     ApplicationController.renderer.render(partial: 'events/event',
       locals: { event: event })
