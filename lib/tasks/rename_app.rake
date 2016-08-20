@@ -2,7 +2,7 @@ desc "rename rails app"
 task rename_app: :environment do
   require 'yaml'
   app = YAML.load_file('application.yml')
-  app_name = app["app_name"]
+  app_name = app["app_name"] || "MyApp"
   paths = %W[
     ./app/views/layouts/application.html.erb
     ./config/application.rb
