@@ -1,4 +1,4 @@
-desc "rename rails app"
+desc "rename rails app name"
 task rename_app: :environment do
   require 'yaml'
   app = YAML.load_file('application.yml')
