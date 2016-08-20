@@ -6,6 +6,8 @@
     "npm": "3.5.0"
   },
   "scripts": {
+    "start": "sh -c 'rm app/assets/webpack/* || true && cd client && npm run build:development'",
+    "test":"mocha",
     "build:test": "webpack --config webpack.config.js",
     "build:production": "NODE_ENV=production webpack --config webpack.config.js",
     "build:development": "webpack -w --config webpack.config.js"
