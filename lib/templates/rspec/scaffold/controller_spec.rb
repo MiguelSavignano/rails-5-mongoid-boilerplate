@@ -9,7 +9,7 @@ RSpec.describe <%= controller_class_name %>Controller, type: :controller do
 
   describe "GET #index" do
     before{ get :index, params: {} }
-    it { expect(assigns(:<%= file_name %>s)).to eq([<%= file_name %>]) }
+    it { expect(assigns(:<%= file_name.pluralize %>)).to eq([<%= file_name %>]) }
     it { expect(response).to render_template(:index) }
   end
 
