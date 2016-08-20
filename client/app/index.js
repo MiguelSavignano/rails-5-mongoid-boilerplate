@@ -1,4 +1,5 @@
 //components
+export { default as Demo }        from '../app/components/demo'
 
 //components_stateless
 
@@ -9,4 +10,3 @@
 //stores
 
 //services
-export { default as BackendService }        from '../config/initializers/BackendService'
