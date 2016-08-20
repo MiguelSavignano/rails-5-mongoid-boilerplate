@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'hello_world', to: 'hello_world#index'
   root "products#index"
+  get 'site/react_demo', to: 'site#react_demo'
   resources :products
   devise_for :users
 end
