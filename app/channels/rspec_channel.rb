@@ -2,7 +2,7 @@
 class RspecChannel < ApplicationCable::Channel
   def self.broadcast(message)
     ActionCable.server.broadcast 'rspec_channel',
-      { message: message }
+      message
   end
   def subscribed
     stream_from "rspec_channel"

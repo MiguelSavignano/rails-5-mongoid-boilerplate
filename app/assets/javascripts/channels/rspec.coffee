@@ -6,5 +6,12 @@ App.rspec = App.cable.subscriptions.create "RspecChannel",
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
-    console.log data.message
-    # Called when there's incoming data on the websocket for this channel
+    if(data.message == "Test Pass")
+      $("#rspec_alert").removeClass("btn-error")
+      $("#rspec_alert").addClass("btn-success")
+      $("#rspec_alert").text(data.message)
+    else
+      $("#rspec_alert").removeClass("btn-success")
+      $("#rspec_alert").addClass("btn-error")
+      $("#rspec_alert").text(data.message)
+      
