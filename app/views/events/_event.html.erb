@@ -1,3 +1,6 @@
 <div class="event">
-  <%= event.created_at.to_formatted_s(:short) %>: <%= event.message %>
+  <p>
+    <%= event.created_at.to_formatted_s(:short) %>: <%= event.message %>
+    <%= link_to "more info", event.link_info if event.link_info.present? %>
+  </p>
 </div>
