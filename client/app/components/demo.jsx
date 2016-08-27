@@ -1,30 +1,26 @@
 import React, { PropTypes } from 'react'
+import {observable}         from 'mobx'
+import {observer}           from "mobx-react"
 import _                    from 'lodash'
 
-export default class Demo extends React.Component {
+
+export default @observer class Demo extends React.Component {
   constructor(props) {
     super(props)
     _.bindAll(this, ['onCountUp', "onCountDown"])
-    this.state = {
-      count: 0
-    }
   }
+  @observable count = 0;
   onCountUp(event) {
-    this.setState({
-      count: this.state.count + 1
-    });
+    this.count++
   }
   onCountDown(event) {
-    this.setState({
-      count: this.state.count - 1
-    });
+    this.count--
   }
   render() {
-    const {count} = this.state
     return(
       <div>
         <button onClick={this.onCountUp}>+</button>
-        <h2> {count} </h2>
+        <h1>{this.count}</h1>
         <button onClick={this.onCountDown}>-</button>
       </div>
     )
