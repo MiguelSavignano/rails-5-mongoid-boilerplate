@@ -3,18 +3,13 @@ import {observable}         from 'mobx'
 import {observer}           from "mobx-react"
 import _                    from 'lodash'
 
-@observer class Store extends React.Component {
-  constructor(props) {
-    super(props)
-    _.bindAll(this, ['onCountUp', "onCountDown"])
-  }
-  onCountUp(event) {
-    this.count++
-  }
-  onCountDown(event) {
-    this.count--
-  }
-  render(){
-    return <div></div>
-  }
+var Store = observable({
+  count: 0
+})
+Store.onCountUp = function(event) {
+  Store.count++
 }
+Store.onCountDown = function(event) {
+  Store.count--
+}
+export default Store
