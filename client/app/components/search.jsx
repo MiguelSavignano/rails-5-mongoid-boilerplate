@@ -15,7 +15,8 @@ export default @observer class Search extends React.Component {
   render() {
     return(
       <div>
-        <input onKeyUp={this.onSeach.bind(this)} />
+        <input placeholder="Search"
+               onKeyUp={this.onSeach.bind(this)} />
         <ul>{
           this.users_filterd.map((user)=>(
             <li key={user.id} >
