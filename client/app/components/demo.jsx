@@ -2,15 +2,29 @@ import React, { PropTypes } from 'react'
 import {observable}         from 'mobx'
 import {observer}           from "mobx-react"
 import _                    from 'lodash'
-import {Store}              from '../../app'
 
-export default @observer class Demo extends React.Component {
+export default @observer class Demo1 extends React.Component {
+  @observable users = [ {id:"1",name:"miguel", address:"dato repetido"},{id:"2",name:"alberto", address:"dato repetido"}, ]
+  @observable user_selected = this.users[0]
+  onSelectUser(event){
+    const user_id = event.target.value
+    this.user_selected = this.users.find( (user) => user.id == user_id )
+  }
   render() {
     return(
       <div>
-        <button onClick={Store.onCountUp}>+</button>
-        <h1>{Store.count}</h1>
-        <button onClick={Store.onCountDown}>-</button>
+        <ul>
+          <li>{this.user_selected.name}</li>
+          <li>{this.user_selected.address}</li>
+          <li>{this.user_selected.id}</li>
+        </ul>
+        <select className="form-control" onChange={this.onSelectUser.bind(this)}>{
+          this.users.map((user)=>(
+            <option key={user.id} value={user.id}>
+              {user.name}
+            </option>
+          ))
+        }</select>
       </div>
     )
   }
