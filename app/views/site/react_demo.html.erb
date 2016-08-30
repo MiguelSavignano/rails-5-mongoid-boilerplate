@@ -1,1 +1,14 @@
-<%= react_component( "Demo1" , props: @react_props, prerender: false) %>
+<h1>REACT</h1>
+<%= react_component( "Demo" , props: @react_props, prerender: false) %>
+<hr>
+<h1>JQUERY</h1>
+<ul>
+  <li id="js-user-name"><%= @react_props[:users].first[:name] %></li>
+  <li id="js-user-address"><%= @react_props[:users].first[:address] %></li>
+  <li id="js-user-id"><%= @react_props[:users].first[:id] %></li>
+</ul>
+<select class="form-control" id="js-users-select" data-users="<%= @react_props %>">
+  <% @react_props[:users].each do |user| %>
+    <option value="<%= user[:id] %>"><%= user[:name] %></option>
+  <% end %>
+</select>

@@ -4,7 +4,7 @@ import {observer}           from "mobx-react"
 import _                    from 'lodash'
 
 export default @observer class Demo1 extends React.Component {
-  @observable users = [ {id:"1",name:"miguel", address:"dato repetido"},{id:"2",name:"alberto", address:"dato repetido"}, ]
+  @observable users = this.props.users
   @observable user_selected = this.users[0]
   onSelectUser(event){
     const user_id = event.target.value
