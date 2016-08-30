@@ -7,8 +7,17 @@
   <li id="js-user-address"><%= @react_props[:users].first[:address] %></li>
   <li id="js-user-id"><%= @react_props[:users].first[:id] %></li>
 </ul>
-<select class="form-control" id="js-users-select" data-users="<%= @react_props %>">
+<select id="js-users-select" class="form-control" data-users="<%= @react_props[:users].to_json %>">
   <% @react_props[:users].each do |user| %>
     <option value="<%= user[:id] %>"><%= user[:name] %></option>
   <% end %>
 </select>
+<script>
+  $("#js-users-select").on('change', function(event){
+    var users = $(this).data().users
+    var user_selected = users.find( (user) => user.id == event.target.value )
+    $("#js-user-name").text(user_selected.name)
+    $("#js-user-address").text(user_selected.address)
+    $("#js-user-id").text(user_selected.id)
+  })
+</script>
