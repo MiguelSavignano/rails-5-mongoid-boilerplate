@@ -20,7 +20,6 @@ const SearchInput = (props) =>(
   render() {
     return(
       <div>
-        <SearchInput onSearch={this.onSearch.bind(this)}/>
         <ul>{
           this.users_filterd.map((user)=>(
             <li key={user.id} >
