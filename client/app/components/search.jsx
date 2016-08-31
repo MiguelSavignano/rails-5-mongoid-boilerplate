@@ -12,7 +12,7 @@ const SearchInput = (props) =>(
 @observer class Search extends React.Component {
   constructor(props){
     super(props)
-    $.Seach={ onSearch: this.onSearch.bind(this) }
+    $.Search = {  onSearch: this.onSearch.bind(this) }
   }
   @observable users_filterd = this.props.users
   @observable users = this.props.users
