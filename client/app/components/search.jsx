@@ -3,10 +3,20 @@ import {observable}         from 'mobx'
 import {observer}           from "mobx-react"
 import _                    from 'lodash'
 
-export default @observer class Search extends React.Component {
+class SearchInput extends React.Component{
+  render(){
+    return (
+      <input placeholder="Search"
+        onKeyUp={this.props.onSearch} />
+    )
+  }
+}
+
+
+@observer class Search extends React.Component {
   @observable users_filterd = this.props.users
   @observable users = this.props.users
-  onSeach(event){
+  onSearch(event){
     let searchValue = event.target.value
     this.users_filterd = this.users.filter( (user) => (
       (new RegExp(searchValue, "i") ).test(user.name)
@@ -15,8 +25,7 @@ export default @observer class Search extends React.Component {
   render() {
     return(
       <div>
-        <input placeholder="Search"
-               onKeyUp={this.onSeach.bind(this)} />
+        <SearchInput onSearch={this.onSearch.bind(this)}/>
         <ul>{
           this.users_filterd.map((user)=>(
             <li key={user.id} >
@@ -28,3 +37,5 @@ export default @observer class Search extends React.Component {
     )
   }
 }
+// export {Search as default, SearchInput }
+export {Search as default}
