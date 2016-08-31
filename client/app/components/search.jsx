@@ -3,7 +3,6 @@ import {observable}         from 'mobx'
 import {observer}           from "mobx-react"
 import _                    from 'lodash'
 
-
 const SearchInput = (props) =>(
   <input placeholder="Search"
     onKeyUp={props.onSearch} />
@@ -33,4 +32,4 @@ const SearchInput = (props) =>(
     )
   }
 }
-export {Search as default, SearchInput }
+export {SearchInput, Search}
