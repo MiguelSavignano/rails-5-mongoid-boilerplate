@@ -3,15 +3,11 @@ import {observable}         from 'mobx'
 import {observer}           from "mobx-react"
 import _                    from 'lodash'
 
-class SearchInput extends React.Component{
-  render(){
-    return (
-      <input placeholder="Search"
-        onKeyUp={this.props.onSearch} />
-    )
-  }
-}
 
+const SearchInput = (props) =>(
+  <input placeholder="Search"
+    onKeyUp={props.onSearch} />
+)
 
 @observer class Search extends React.Component {
   @observable users_filterd = this.props.users
@@ -37,5 +33,4 @@ class SearchInput extends React.Component{
     )
   }
 }
-// export {Search as default, SearchInput }
-export {Search as default}
+export {Search as default, SearchInput }
