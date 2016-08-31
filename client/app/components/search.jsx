@@ -1,14 +1,21 @@
 import React, { PropTypes } from 'react'
+import ReactDOM             from 'react-dom'
 import {observable}         from 'mobx'
 import {observer}           from "mobx-react"
 import _                    from 'lodash'
 
 const SearchInput = (props) =>(
   <input placeholder="Search"
-    onKeyUp={props.onSearch} />
+    onKeyUp={props.onKeyUp} />
 )
 
 @observer class Search extends React.Component {
+  constructor(props){
+    super(props)
+    ReactDOM.render( <SearchInput onKeyUp={this.onSearch.bind(this)} />, document.getElementById("react-SearchInput") )
+  }
+  // componentWillMount(){
+  // }
   @observable users_filterd = this.props.users
   @observable users = this.props.users
   onSearch(event){
@@ -31,4 +38,5 @@ const SearchInput = (props) =>(
     )
   }
 }
+
 export {SearchInput, Search}
