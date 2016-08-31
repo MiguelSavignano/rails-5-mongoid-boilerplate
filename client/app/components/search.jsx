@@ -12,8 +12,7 @@ const SearchInput = (props) =>(
 @observer class Search extends React.Component {
   constructor(props){
     super(props)
-    ReactDOM.render( <SearchInput onKeyUp={this.onSearch.bind(this)} />,
-      document.getElementById("react-SearchInput") )
+    $.Seach={ onSearch: this.onSearch.bind(this) }
   }
   @observable users_filterd = this.props.users
   @observable users = this.props.users
